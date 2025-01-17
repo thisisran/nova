@@ -48,7 +48,7 @@ Straight:
 ```elisp
 
 (straight-use-package
-   '(nova :type git :host github :repo "thisisran/nova-emacs"))
+   '(nova :type git :host github :repo "thisisran/nova"))
 
 ```
 
@@ -125,7 +125,7 @@ and relies on it, but also wraps it in a (side-left) nova frame:
 
 ```elisp
 
-(nova-vertico 1)
+(nova-vertico-mode 1)
 
 ```
 
