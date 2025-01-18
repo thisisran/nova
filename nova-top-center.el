@@ -32,6 +32,9 @@
 (require 'nova-common-vars)
 (require 'nova-utils)
 
+(defvar-local nova-top-center-side-padding 20 "Padding around top center title")
+
+
 (defun nova--render-top-center (name svg-object)
   "Draw the nova title at the top center of the frame.
 SVG-OBJECT: main SVG object

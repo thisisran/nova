@@ -33,6 +33,7 @@
 (defvar-local nova--name nil "Name that represents the nova frame.")
 (defvar-local nova--title nil "Title for the nova frame.")
 (defvar-local nova--style nil "The frame drawing style.")
+(defvar-local nova--last-size-position nil "Save last size and position of the nova frame.")
 
 (defvar-local nova-background-color (face-attribute 'default :background) "Background color for the nova frame.")
 (defvar-local nova-border-color "#3d5a80" "Border color for the nova frame.")
@@ -45,8 +46,6 @@
 (defvar-local nova-left-padding 15 "Left padding to use when wrapping a posframe.")
 (defvar-local nova-top-padding 0 "Top padding to use when wrapping a posframe.")
 (defvar-local nova-extra-height 2 "Extra height to add to the frame.")
-(defvar-local nova-top-center-side-padding 20 "Padding around top center title")
-(defvar-local nova--last-size-position nil "Save last size and position of the nova frame.")
 
 (provide 'nova-common-vars)
 ;;; nova-common-vars.el ends here
