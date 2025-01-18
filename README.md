@@ -1,7 +1,7 @@
 # Nova: Emacs SVG Child Frames
 
 This is very preliminary work, nova may not work for you.
-You might need to tweek the code to make it work on your screen
+You might need to tweak the code to make it work on your screen
 and font configuration.
 
 ![nova-vertico in action](images/nova-vertico-example.png "nova-vertico in action")
@@ -14,7 +14,7 @@ and font configuration.
 
 Nova provides a visually enhanced way to display
 child frames in Emacs by leveraging an SVG-based posframe
-wrapped around [posframe](https://github.com/tumashu/posframe) (or a regular child frame).
+wrapped around ![posframe](https://github.com/tumashu/posframe) (or a regular child frame).
 Instead of modifying an existing child frame, this
 package creates a secondary frame that draws a
 customizable SVG background—complete with rounded
@@ -63,7 +63,7 @@ Elpaca (with use-package integration):
 
 ### Manual install
 
-To install Nova manually, clone [https://github.com/thisisran/nova-emacs](this) repo and then add the necessary path:
+To install Nova manually, clone ![this](https://github.com/thisisran/nova-emacs) repo and then add the necessary path:
 
 ```elisp
 
@@ -112,15 +112,94 @@ For nova-eldoc (showing eldoc-box-hover in a nova frame):
 
 ```
 
+
+## Configuration
+
+You can adjust the way the frames look by setting the following:
+
+nova-background-color, nova-border-color, nova-border-size (1 is recommended),
+nova-title-color, and nova-title-background-color. 
+
+In addition, nova-radius-x and nova-radius-y allow you to change how round the 
+corners of the frame will be. Keep in mind that this might cause the frame to
+be rendered incorrectly for some values.
+
+nova-min-height is used to give the nova frame a minimal height value. In some
+cases, when wrapping a frame, because of the added decorations nova adds to a
+frame, it doesn't look right when the height is too small.
+
+nova-top-padding and nova-left-padding are used to add some padding for the top
+and left side of an existing frame we are wrapping the nova frame around. This 
+is useful when it seems the existing (non-nova) frame is "stepping" on top of the
+nova frame, and we want to give nova more room.
+
+nova-extra-height allows you to give extra height to the nova frame.
+
+Each of these variables are buffer local. There is a a convenience macro, 
+**nova--set-local**, to help set the variables and make sure they are set in
+a buffer local context. It accepts 3 arguments:
+
+var - the variable name you want to set.
+value - the new value you want to give the variable.
+name - the unique name representing the nova frame you want to set the new value for.
+
 ## Usage (users)
 
 Once the package is loaded correctly (whether by using straight/elpaca,
 or the manual install), you can use the following to enable nova with
 vertico, corfu, or eldoc (more modes to come):
 
+### nova library
+
+nova currently supports 2 styles: **side-left** and **top-center**
+
+side-left shows the title on the left side of the frame (as can be seen
+in the nova-vertico image above). It adds some width to the frame, and
+might not fit all scenarios (for example, when no title is required).
+
+top-center shows the title at the top center of the frame. It is more
+minimalistic than side-left, and also looks nice when no title is needed.
+
+There are currently 2 functions that allow you to create a nova frame:
+nova-show, and nova-show-with-posframe. nova frames are wrappers around
+existing child frames (posframe or other). Sometimes you have an existing
+frame you want to wrap around (such as the case with nova-vertico, nova-corfu,
+and nova-eldoc), but in other cases you might just want to pop a nova frame
+to display some information.
+
+**nova-show** is used in the latter case, where you just want to popup nova
+to display some inforamtion. it accepts 4 arguments (and another optional one):
+
+name - a unique name to identify the nova frame (used for the buffer of the frame).
+title - self explanatory.
+style - currently nova supports either 'side-left or 'top-center.
+pos-name - a unique name given to the internal posframe that will be wrapped around
+by nova.
+posframe-args - additional arguments to pass to the posframe function for the internal
+posframe we create.
+
+
+**nova-show-with-posframe** is used in cases where we have an existing posframe we want
+to wrap around with nova (i.e. nova-vertico). It accepts 4 arguments:
+
+name, title, style - same as nova-show above.
+
+pos-frame - the existing posframe you want to wrap nova around.
+
+
+In addition to nova-show and nova-show-with-posframe, the nova library 
+provides the following functions:
+
+**nova-update**: recreates the nova frame's SVG to adjust the look of the frame in
+case the frame was updated (i.e. its size has changed)
+
+**nova-delete-frame**: delete a nova frame by its name
+
+**nova-delete-all**: deletes all nova frames
+
 ### nova-vertico
 
-nova-vertico is similar to [https://github.com/tumashu/vertico-posframe](vertico-posframe) (make sure to have it installed),
+nova-vertico is similar to ![vertico-posframe](https://github.com/tumashu/vertico-posframe) (make sure to have it installed),
 and relies on it, but also wraps it in a (side-left) nova frame:
 
 ```elisp
@@ -152,7 +231,7 @@ in a (top-center) nova frame:
 
 ```
 
-## Developers
+## Creating new styles
 
  To develop a new nova style, you will need to implement 2 functions:
 
