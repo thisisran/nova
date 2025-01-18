@@ -39,7 +39,7 @@
 (require 'nova-utils)
 (require 'posframe)
 (unless (require 'corfu nil t)
-  (message "corfu must be installed in order to use nova-vertico"))
+  (message "corfu must be installed in order to use nova-corfu"))
 
 (defvar nova-corfu--original-corfu-border (face-attribute 'corfu-border :background nil t))
 (defvar nova-corfu--original-corfu-default (face-attribute 'corfu-default :background nil t))
