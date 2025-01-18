@@ -48,7 +48,7 @@ Straight:
 ```elisp
 
 (straight-use-package
-   '(nova :type git :host github :repo "thisisran/nova-emacs"))
+   '(nova :type git :host github :repo "thisisran/nova"))
 
 ```
 
@@ -63,7 +63,7 @@ Elpaca (with use-package integration):
 
 ### Manual install
 
-To install Nova manually, clone [[https://github.com/thisisran/nova-emacs][this]] repo and then add the necessary path:
+To install Nova manually, clone [https://github.com/thisisran/nova-emacs](this) repo and then add the necessary path:
 
 ```elisp
 
@@ -120,12 +120,12 @@ vertico, corfu, or eldoc (more modes to come):
 
 ### nova-vertico
 
-nova-vertico is similar to [[https://github.com/tumashu/vertico-posframe][vertico-posframe]] (make sure to have it installed),
+nova-vertico is similar to [https://github.com/tumashu/vertico-posframe](vertico-posframe) (make sure to have it installed),
 and relies on it, but also wraps it in a (side-left) nova frame:
 
 ```elisp
 
-(nova-vertico 1)
+(nova-vertico-mode 1)
 
 ```
 
