@@ -85,7 +85,7 @@ For nova-vertico (showing vertico in a floating nova frame):
 
 (require 'nova-vertico)
 
-;; Then load using (nova-vertico 1)
+;; Then load using (nova-vertico-mode 1)
 
 ```
 
@@ -97,8 +97,8 @@ For nova-corfu/nova-corfu-popupup-info (showing corfu and corfu-popupinfo in a n
 (require 'nova-corfu-popupinfo)
 
 ;; Then load using:
-;; (nova-corfu 1)
-;; (nova-corfu-popupinfo 1)
+;; (nova-corfu-mode 1)
+;; (nova-corfu-popupinfo-mode 1)
 
 ```
 
@@ -108,7 +108,7 @@ For nova-eldoc (showing eldoc-box-hover in a nova frame):
 
 (require 'nova-eldoc)
 
-;; Then load using (nova-eldoc 1)
+;; Then load using (nova-eldoc-mode 1)
 
 ```
 
@@ -215,8 +215,8 @@ nova-corfu (nova-corfu-popupinfo) shows corfu in-buffer completions
 
 ```elisp
 
-(nova-corfu 1)
-(nova-corfu-popupinfo 1)
+(nova-corfu-mode 1)
+(nova-corfu-popupinfo-mode 1)
 
 ```
 
@@ -227,7 +227,7 @@ in a (top-center) nova frame:
 
 ```elisp
 
-(nova-eldoc 1)
+(nova-eldoc-mode 1)
 
 ```
 
